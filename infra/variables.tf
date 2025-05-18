@@ -35,12 +35,12 @@ variable "node_data" {
       "10.0.0.11" = {
         install_disk = "/dev/nvme0n1"
         interface    = "eno1"
-        second_disk  = "/dev/sdb"
+        second_disk  = "/dev/sda"
       },
       "10.0.0.12" = {
         install_disk = "/dev/nvme0n1"
         interface    = "eno1"
-        second_disk  = "/dev/sdb"
+        second_disk  = "/dev/sda"
       },
     }
     workers = {}
