@@ -10,3 +10,7 @@ spec:
     name: flux-system
   path: ./cluster/infrastructure
   prune: false
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age-infrastructure
