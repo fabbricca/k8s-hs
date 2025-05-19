@@ -8,7 +8,7 @@ spec:
   releaseName: cilium
   chart:
     spec:
-      chart: cilium/cilium
+      chart: cilium
       version: "1.17.4"
       sourceRef:
         kind: HelmRepository
