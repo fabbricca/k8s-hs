@@ -19,9 +19,6 @@ spec:
       mode: kubernetes
     k8sServiceHost: localhost
     k8sServicePort: 7445
-    k8sClientRateLimit:
-      qps: 50
-      burst: 100
     kubeProxyReplacement: true
     securityContext:
       capabilities:
@@ -51,9 +48,3 @@ spec:
       createGatewayClass: true
       enableAlpn: true
       enableAppProtocol: true
-    hubble:
-      enabled: true
-      relay:
-        enabled: true
-      ui:
-        enabled: true
