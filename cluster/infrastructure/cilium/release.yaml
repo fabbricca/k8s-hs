@@ -1,0 +1,79 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cilium
+  namespace: kube-system
+spec:
+  interval: 5m0s
+  releaseName: cilium
+  chart:
+    spec:
+      chart: cilium/cilium
+      version: "1.17.4"
+  values:
+    ipam:
+      mode: kubernetes
+    kubeProxyReplacement: true
+    securityContext:
+      capabilities:
+        ciliumAgent:
+          - CHOWN
+          - KILL
+          - NET_ADMIN
+          - NET_RAW
+          - IPC_LOCK
+          - SYS_ADMIN
+          - SYS_RESOURCE
+          - DAC_OVERRIDE
+          - FOWNER
+          - SETGID
+          - SETUID
+        cleanCiliumState:
+          - NET_ADMIN
+          - SYS_ADMIN
+          - SYS_RESOURCE
+    cgroup:
+      autoMount:
+        enabled: false
+      hostRoot: /sys/fs/cgroup
+    k8sServiceHost: localhost
+    k8sServicePort: 7445
+    l7Proxy: true
+    gatewayAPI:
+      enabled: true
+      enableAlpn: true
+      enableAppProtocol: true
+    prometheus:
+      enabled: true
+    operator:
+      prometheus:
+        enabled: true
+    hubble:
+      enabled: true
+      metrics:
+        enableOpenMetrics: true
+        enabled:
+          - dns
+          - drop
+          - tcp
+          - flow
+          - port-distribution
+          - icmp
+          - httpV2
+        httpV2:
+          exemplars: true
+          labelsContext: "source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload,traffic_direction"
+      tls:
+        auto:
+          enabled: false
+        server:
+          existingSecret: hubble-server-certs
+      relay:
+        tls:
+          server:
+            enabled: true
+            existingSecret: hubble-server-certs
+          client:
+            existingSecret: hubble-server-certs
+    certgen:
+      generateCA: false
