@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - secret-cilium.yaml
   - secret-hubble.yaml
-  - cilium.yaml
+  - cilium-ca.yaml
+  - hubble-server-certs.yaml
