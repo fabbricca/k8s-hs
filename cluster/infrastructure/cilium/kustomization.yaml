@@ -3,5 +3,3 @@ kind: Kustomization
 resources:
   - repository.yaml
   - release.yaml
-  - cilium-ca.yaml
-  - hubble-server-certs.yaml

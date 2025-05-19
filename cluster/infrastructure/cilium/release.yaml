@@ -67,17 +67,3 @@ spec:
         httpV2:
           exemplars: true
           labelsContext: "source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload,traffic_direction"
-      tls:
-        auto:
-          enabled: false
-        server:
-          existingSecret: hubble-server-certs
-      relay:
-        tls:
-          server:
-            enabled: true
-            existingSecret: hubble-server-certs
-          client:
-            existingSecret: hubble-server-certs
-    certgen:
-      generateCA: false
