@@ -8,7 +8,7 @@ spec:
   dependsOn:
     - name: cilium--cilium
       namespace: flux-system
-  path: ./cluster/infrastructure/cilium/cilium-config
+  path: ./
   prune: true
   timeout: 1h
   sourceRef:

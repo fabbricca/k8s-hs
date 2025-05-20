@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 15m
-  path: ./cluster/infrastructure/cilium/cilium-system
+  path: ./
   prune: true
   timeout: 1h
   sourceRef:

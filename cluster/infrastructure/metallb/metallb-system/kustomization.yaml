@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 15m
-  path: ./cluster/infrastructure/metallb/metallb-system
+  path: ./
   prune: true
   timeout: 15m
   sourceRef:
