@@ -1,11 +1,14 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cilium--cilium
+  name: config--cilium
   namespace: flux-system
 spec:
   interval: 15m
-  path: ./
+  dependsOn:
+    - name: cilium--cilium
+      namespace: flux-system
+  path: ./cluster/infrastructure/cilium/cilium-config
   prune: true
   timeout: 1h
   sourceRef:
