@@ -7,7 +7,7 @@ spec:
   interval: 15m
   dependsOn: 
   - name: metallb--metallb-system  
-  path: cluster/infrastructure/metallb/metallb-config
+  path: ./cluster/infrastructure/metallb/metallb-config
   prune: true
   timeout: 15m
   sourceRef:
