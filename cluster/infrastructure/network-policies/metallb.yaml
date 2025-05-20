@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: cilium.io/v2
+    kind: CiliumNetworkPolicy
+    metadata:
+      name: allow-apiserver-to-metallb-webhook
+      namespace: metallb-system
+    spec:
+      endpointSelector:
+        matchLabels:
+          component: controller
+      ingress:
+      - fromEntities:
+        - host
+      - fromEndpoints:
+        - matchLabels:
+            component: kube-apiserver
+            tier: control-plane
+        toPorts:
+        - ports:
+          - port: "443"
+            protocol: TCP
