@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: cilium.io/v2
+    kind: CiliumNetworkPolicy
+    metadata:
+      name: allow-dns-egress-helm-controller
+      namespace: flux-system
+    spec:
+      description: Permit helm-controller pods to perform DNS lookups against CoreDNS in kube-system.
+      endpointSelector:
+        matchLabels:
+          app: helm-controller
+      egress:
+      - toEndpoints:
+        - matchLabels:
+            k8s-app: kube-dns
+            k8s:io.kubernetes.pod.namespace: kube-system
+        toPorts:
+        - ports:
+          - port: "53"
+            protocol: UDP
+  - apiVersion: cilium.io/v2
+    kind: CiliumNetworkPolicy
+    metadata:
+      name: allow-helm-to-source-http
+      namespace: flux-system
+    spec:
+      description: Allow helm-controller pods to fetch charts via HTTP from the Flux source-controller.
+      endpointSelector:
+        matchLabels:
+          app: helm-controller
+      egress:
+      - toEndpoints:
+        - matchLabels:
+            app: source-controller
+            k8s:io.kubernetes.pod.namespace: flux-system
+        toPorts:
+        - ports:
+          - port: "80"
+            protocol: TCP
