@@ -4,3 +4,4 @@ resources:
   - cilium
   - metallb
   - nginx-ingress
+  - cert-manager
