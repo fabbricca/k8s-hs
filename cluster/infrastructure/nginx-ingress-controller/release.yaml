@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: nginx-ingress-controller
-      version: latest
+      version: 11.6.x
       sourceRef:
         kind: HelmRepository
         name: bitnami
