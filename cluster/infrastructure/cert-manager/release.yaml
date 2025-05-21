@@ -15,3 +15,5 @@ spec:
   interval: 15m
   timeout: 5m
   releaseName: cert-manager
+  values:
+    installCRDs: true
