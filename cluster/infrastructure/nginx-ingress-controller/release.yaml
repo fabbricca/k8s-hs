@@ -6,19 +6,20 @@ metadata:
 spec:
   chart:
     spec:
-      chart: nginx-ingress-controller
-      version: 11.5.x
+      chart: ingress-nginx
+      version: 1.12.x
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: nginx-ingress-controller
         namespace: flux-system
+  targetNamespace: nginx-ingress-controller
   interval: 15m
   timeout: 5m
-  releaseName: nginx-ingress-controller
   values:
-    hostNetwork: true
-    replicaCount: 2
-    service:
-      type: LoadBalancer
-    metrics:
-      enabled: true
+    controller:
+      hostNetwork: true
+      replicaCount: 2
+      service:
+        type: LoadBalancer
+      metrics:
+        enabled: true
