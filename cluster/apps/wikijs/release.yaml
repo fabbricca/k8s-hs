@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: wikijs
+  namespace: wikijs
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: wiki
+      sourceRef:
+        kind: HelmRepository
+        name: wikijs
+        namespace: wikijs
+  values:
+    postgresql:
+      enabled: false
+      postgresqlHost: 10.0.0.15
+      postgresqlPort: 5432
+      postgresqlUser: wikijs
+      postgresqlDatabase: wikijs
+      existingSecret: wikijs-wikijs
+    persistence:
+      enabled: true
+      existingClaim: wikijs-pvc
