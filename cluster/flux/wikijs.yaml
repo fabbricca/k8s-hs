@@ -16,3 +16,7 @@ spec:
       kind: Deployment
       name: wikijs
       namespace: wikijs
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age-apps
