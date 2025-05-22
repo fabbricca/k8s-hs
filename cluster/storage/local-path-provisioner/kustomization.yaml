@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - github.com/rancher/local-path-provisioner/deploy?ref=v0.0.26
 patchesStrategicMerge:
-  - patches/configmap-patch.yaml
-  - patches/storageclass-patch.yaml
-  - patches/namespace-patch.yaml
+  - patches/configmap.yaml
+  - patches/storageclass.yaml
+  - patches/namespace.yaml
