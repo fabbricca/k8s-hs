@@ -23,3 +23,7 @@ spec:
         type: LoadBalancer
       metrics:
         enabled: true
+      admissionWebhooks:
+        enabled: true
+        patch:
+          enabled: true
