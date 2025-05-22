@@ -28,6 +28,7 @@ spec:
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
+        fsGroup: 1000
       containers:
       - name: jellyfin
         image: jellyfin/jellyfin@sha256:d20137292584fc6188532d80dd5a56cc4bd1c6055730f6b7552499ee22ab92c2
