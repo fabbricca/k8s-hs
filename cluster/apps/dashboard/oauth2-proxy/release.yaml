@@ -20,6 +20,8 @@ spec:
       existingSecret: github-oauth-secret
     extraArgs:
       provider: "github"
+      skip-provider-button: "true"
+      pass-authorization-header: "true"
     ingress: 
       enabled: true
       path: /oauth2
