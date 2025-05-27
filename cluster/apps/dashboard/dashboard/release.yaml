@@ -15,3 +15,7 @@ spec:
   interval: 15m
   timeout: 5m
   releaseName: kubernetes-dashboard
+  values:
+    extraArgs:
+      - --enable-skip-login
+      - --enable-insecure-login
