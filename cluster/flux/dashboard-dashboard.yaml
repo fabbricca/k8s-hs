@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 30m
   dependsOn:
-    - name: dashboard--dashboard
+    - name: oauth--dashboard
       namespace: flux-system
   path: ./cluster/apps/dashboard/dashboard
   prune: true
