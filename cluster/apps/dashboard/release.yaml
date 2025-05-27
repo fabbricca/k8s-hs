@@ -16,6 +16,13 @@ spec:
   timeout: 5m
   releaseName: kubernetes-dashboard
   values:
+    kong:
+      admin:
+        tls:
+          enabled: false
+      proxy:
+        http:
+          enabled: true
     extraArgs:
       - --enable-skip-login
       - --enable-insecure-login
