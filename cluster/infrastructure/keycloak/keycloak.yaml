@@ -56,6 +56,8 @@ spec:
               value: "true"
             - name: 'KC_CACHE'
               value: 'ispn'
+            - name: KC_DB_URL_SCHEMA
+              value: "public"
             # Use the Kubernetes configuration for distributed caches which is based on DNS
             - name: 'KC_CACHE_STACK'
               value: 'kubernetes'
