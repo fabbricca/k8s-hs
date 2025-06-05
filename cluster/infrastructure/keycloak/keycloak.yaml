@@ -91,15 +91,15 @@ spec:
           startupProbe:
             httpGet:
               path: /health/started
-              port: 9000
+              port: 8080
           readinessProbe:
             httpGet:
               path: /health/ready
-              port: 9000
+              port: 8080
           livenessProbe:
             httpGet:
               path: /health/live
-              port: 9000
+              port: 8080
           resources:
             limits:
               cpu: 1000m
