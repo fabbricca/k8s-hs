@@ -92,6 +92,10 @@ spec:
             httpGet:
               path: /health/started
               port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 30
+            timeoutSeconds: 2
           readinessProbe:
             httpGet:
               path: /health/ready
@@ -103,7 +107,7 @@ spec:
           resources:
             limits:
               cpu: 1000m
-              memory: 1000Mi
+              memory: 2000Mi
             requests:
-              cpu: 250m
-              memory: 850Mi
+              cpu: 500m
+              memory: 1500Mi
