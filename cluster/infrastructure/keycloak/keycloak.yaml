@@ -90,8 +90,8 @@ spec:
               containerPort: 8080
           startupProbe:
             httpGet:
-              path: /health/started
-              port: 8080
+              path: /health/ready
+              port: 9000
             initialDelaySeconds: 30
             periodSeconds: 10
             failureThreshold: 30
@@ -99,11 +99,11 @@ spec:
           readinessProbe:
             httpGet:
               path: /health/ready
-              port: 8080
+              port: 9000
           livenessProbe:
             httpGet:
               path: /health/live
-              port: 8080
+              port: 9000
           resources:
             limits:
               cpu: 1000m
