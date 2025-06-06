@@ -77,7 +77,7 @@ spec:
             - name: KC_DB_URL_DATABASE
               value: "keycloak"
             - name: KC_DB_SCHEMA
-              value: "public"
+              value: "keycloak"
             # In a production environment, use a secret to store username and password to the database
             - name: KC_DB_USERNAME
               valueFrom:
